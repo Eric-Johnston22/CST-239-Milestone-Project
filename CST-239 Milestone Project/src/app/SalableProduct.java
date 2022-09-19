@@ -1,9 +1,10 @@
+package app;
 /**
- * Implement a SalableProduct that has a name, description, price, and quantity
+ * Implements a SalableProduct that has a name, description, price, and quantity
  * @author Eric Johnston
- * @version 0.1
+ * @version 0.2
  */
-public class SalableProduct
+public abstract class SalableProduct
 {
 	private String name;
 	private String description;
@@ -12,10 +13,10 @@ public class SalableProduct
 	
 	/**
 	 * Class constructor
-	 * @param name
-	 * @param description
-	 * @param price
-	 * @param quantity
+	 * @param name string
+	 * @param description string
+	 * @param price int
+	 * @param quantity int
 	 */
 	public SalableProduct(String name, String description, int price, int quantity)
 	{
@@ -92,9 +93,5 @@ public class SalableProduct
 	/**
 	 * Print products fields to console
 	 */
-	public void productDetails()
-	{
-		System.out.println("Name: " + getName() +"\nDescription: " + getDescription()
-		+ "\nPrice: " + getPrice() + " gold pieces" + "\nQty: " + getQuantity());
-	}
+	public abstract void productDetails();
 }
