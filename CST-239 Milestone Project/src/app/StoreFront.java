@@ -1,4 +1,8 @@
 package app;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -13,13 +17,18 @@ public class StoreFront {
 
 	// Create InventoryManager object
 	static InventoryManager inventoryManager = new InventoryManager();
+	
+	// Create ShoppingCart object
+	static ShoppingCart shoppingCart = new ShoppingCart();
+	
 
 	/**
 	 * The main menu of the program
 	 */
 	public static void mainMenu() 
 	{
-		System.out.println("Greetings adventurer! Welcome to Lionheart Armory! \nHow can I be of service?" + "\n1. View Products \n2. Exit");
+		System.out.println("Greetings adventurer! Welcome to Lionheart Armory! \nHow can I be of service?" + 
+						   "\n1. View Products \n2. Shopping Cart \n3. Exit");
 		
 		
 		// Hold user input
@@ -30,7 +39,12 @@ public class StoreFront {
 		{
 			showProducts();
 		}
-		if (userChoice == 2) {
+		if (userChoice == 2)
+		{
+			viewCart();
+		}
+		if (userChoice == 3)
+		{
 			System.exit(0);
 		}
 	}
@@ -42,11 +56,11 @@ public class StoreFront {
 	{
 		// Display product names, allow user to choose a product
 		System.out.println("Feel free to browse!\n");
-		inventoryManager.checkStock(inventoryManager.sword1);
-		inventoryManager.checkStock(inventoryManager.axe1);
-		inventoryManager.checkStock(inventoryManager.shield);
-		inventoryManager.checkStock(inventoryManager.chainMail);
-		inventoryManager.checkStock(inventoryManager.minorPotion);
+		
+		for (SalableProduct i : inventoryManager.inventoryList)
+		{
+			inventoryManager.checkStock(i);
+		}
 		
 		System.out.println("\n6. Return to menu");
 		System.out.println("7. Exit");
@@ -70,12 +84,12 @@ public class StoreFront {
 				// Display product details
 				 inventoryManager.sword1.productDetails();
 				 
-				 System.out.println("Interested in buying? (y/n)");
+				 System.out.println("Add to cart? (y/n)");
 				 char purchase = newInput.nextLine().charAt(0);
 				 
 				 if(purchase == 'y')
-				 { 
-					 System.out.println("I appreciate your business!");
+				 {  
+					 shoppingCart.addProduct(inventoryManager.sword1);
 					 
 					 // Update new quantity
 					 inventoryManager.deductQuanitity(inventoryManager.sword1);
@@ -94,12 +108,12 @@ public class StoreFront {
 				// Display product details
 				 inventoryManager.axe1.productDetails();
 				 
-				 System.out.println("Interested in buying? (y/n)");
+				 System.out.println("Add to cart? (y/n)");
 				 char purchase = newInput.nextLine().charAt(0);
 				 
 				 if(purchase == 'y')
 				 { 
-					 System.out.println("I appreciate your business!");
+					 shoppingCart.addProduct(inventoryManager.axe1);
 					 
 					 // Update new quantity
 					 inventoryManager.deductQuanitity(inventoryManager.axe1);
@@ -118,12 +132,12 @@ public class StoreFront {
 				// Display product details
 				 inventoryManager.shield.productDetails();
 				 
-				 System.out.println("Interested in buying? (y/n)");
+				 System.out.println("Add to cart? (y/n)");
 				 char purchase = newInput.nextLine().charAt(0);
 				 
 				 if(purchase == 'y')
 				 { 
-					 System.out.println("I appreciate your business!");
+					 shoppingCart.addProduct(inventoryManager.shield);
 					 
 					 // Update new quantity
 					 inventoryManager.deductQuanitity(inventoryManager.shield);
@@ -142,12 +156,12 @@ public class StoreFront {
 				// Display product details
 				 inventoryManager.chainMail.productDetails();
 				 
-				 System.out.println("Interested in buying? (y/n)");
+				 System.out.println("Add to cart? (y/n)");
 				 char purchase = newInput.nextLine().charAt(0);
 				 
 				 if(purchase == 'y')
 				 { 
-					 System.out.println("I appreciate your business!");
+					 shoppingCart.addProduct(inventoryManager.chainMail);
 					 
 					 // Update new quantity
 					 inventoryManager.deductQuanitity(inventoryManager.chainMail);
@@ -166,12 +180,12 @@ public class StoreFront {
 				// Display product details
 				 inventoryManager.minorPotion.productDetails();
 				 
-				 System.out.println("Interested in buying? (y/n)");
+				 System.out.println("Add to cart? (y/n)");
 				 char purchase = newInput.nextLine().charAt(0);
 				 
 				 if(purchase == 'y')
 				 { 
-					 System.out.println("I appreciate your business!");
+					 shoppingCart.addProduct(inventoryManager.minorPotion);
 					 
 					 // Update new quantity
 					 inventoryManager.deductQuanitity(inventoryManager.minorPotion);
@@ -198,9 +212,166 @@ public class StoreFront {
 		}
 		newInput.close();
 	}
+
+	public static void viewCart()
+	{
+		System.out.println("Your shopping cart: \n");
+		shoppingCart.checkCart(shoppingCart.cartList);
+		System.out.println("\n1. Edit your cart \n2. Checkout \n3. Main menu");
+		
+		Scanner newInput = new Scanner(System.in);
+		byte userChoice = input.nextByte();
+		
+		if (userChoice == 1)
+		{
+			editCart(shoppingCart.cartList);
+		}
+		if (userChoice == 2)
+		{
+			checkout(shoppingCart.cartList);
+		}
+		if (userChoice == 3)
+		{
+			mainMenu();
+		}
+	}
+	
+	/**
+	 * Allow user to edit cart
+	 * @param list
+	 */
+	public static void editCart(ArrayList<SalableProduct> list)
+	{
+		System.out.println("Select a product to edit or press 6 to clear cart");
+		
+		for (int i = 0; i < list.size(); i ++)
+		{
+			System.out.println((i + 1) + " " + list.get(i).getName());
+		}
+		
+		byte userChoice = input.nextByte();
+		Scanner newInput = new Scanner(System.in);
+		
+	
+		// Take user choice to decide to remove item or not
+		switch(userChoice)
+		{
+			case 1:
+			{
+				System.out.println("Remove from cart? (y/n)");
+				char edit = newInput.nextLine().charAt(0);
+					
+				if(edit == 'y')
+				{
+					shoppingCart.cartList.remove(0);
+					inventoryManager.addQuanitity(inventoryManager.sword1);
+				}
+				if(edit == 'n')
+				{
+					viewCart();
+				}
+				
+				 break;
+			}
+			
+			case 2:
+			{
+				System.out.println("Remove from cart? (y/n)");
+				char edit = newInput.nextLine().charAt(0);
+					
+				if(edit == 'y')
+				{
+					shoppingCart.cartList.remove(1);
+					inventoryManager.addQuanitity(inventoryManager.axe1);
+				}
+				if(edit == 'n')
+				{
+					viewCart();
+				}
+				
+				 break;
+			}
+			
+			case 3:
+			{
+				System.out.println("Remove from cart? (y/n)");
+				char edit = newInput.nextLine().charAt(0);
+					
+				if(edit == 'y')
+				{
+					shoppingCart.cartList.remove(2);
+					inventoryManager.addQuanitity(inventoryManager.shield);
+				}
+				if(edit == 'n')
+				{
+					viewCart();
+				}
+				
+				 break;
+			}
+			
+			case 4:
+			{
+				System.out.println("Remove from cart? (y/n)");
+				char edit = newInput.nextLine().charAt(0);
+					
+				if(edit == 'y')
+				{
+					shoppingCart.cartList.remove(3);
+					inventoryManager.addQuanitity(inventoryManager.chainMail);
+				}
+				if(edit == 'n')
+				{
+					viewCart();
+				}
+				
+				 break;
+			}
+			
+			case 5:
+			{
+				System.out.println("Remove from cart? (y/n)");
+				char edit = newInput.nextLine().charAt(0);
+					
+				if(edit == 'y')
+				{
+					shoppingCart.cartList.remove(4);
+					inventoryManager.addQuanitity(inventoryManager.minorPotion);
+				}
+				if(edit == 'n')
+				{
+					viewCart();
+				}
+				
+				 break;
+			}
+			
+			case 6:
+			{
+				shoppingCart.cartList.clear();
+				mainMenu();
+			}
+			System.out.println("\n6. Clear cart");
+		}
+		
+		viewCart();
+		newInput.close();
+	}
+	
+	/**
+	 * Display thank you for checking out
+	 * @param list
+	 */
+	public static void checkout(ArrayList<SalableProduct> list)
+	{
+			System.out.println("Thank you for your business!");
+		
+		mainMenu();
+	}
 	
 	public static void main(String[] args) 
 	{
+		inventoryManager.createInventoryList();
 		mainMenu();
 	}
 

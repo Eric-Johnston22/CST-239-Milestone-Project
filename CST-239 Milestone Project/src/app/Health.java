@@ -5,7 +5,7 @@ package app;
  * @author Eric Johnston
  * @version 0.1
  */
-public class Health extends SalableProduct
+public class Health extends SalableProduct implements Comparable<Health>
 {
 	private int heal;
 	
@@ -31,5 +31,18 @@ public class Health extends SalableProduct
 		System.out.println("Name: " + getName() +"\nDescription: " + getDescription()
 		+ "\nPrice: " + getPrice() + " gold pieces" + "\nQty: " + getQuantity()
 		+ "\nHeal: " + heal);
+	}
+
+	@Override
+	public int compareTo(Health o) {
+		int value = this.getName().compareTo(o.getName());
+		if(value == 0)
+		{
+			return this.getName().compareTo(o.getName());
+		}
+		else
+		{
+			return value;
+		}
 	}
 }

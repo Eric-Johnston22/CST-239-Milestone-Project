@@ -5,7 +5,7 @@ package app;
  * @author Eric Johnston
  * @version 0.1
  */
-public class Weapon extends SalableProduct
+public class Weapon extends SalableProduct implements Comparable<Weapon>
 {
 	private int damage;
 	
@@ -32,4 +32,19 @@ public class Weapon extends SalableProduct
 		+ "\nPrice: " + getPrice() + " gold pieces" + "\nQty: " + getQuantity() +
 		"\nDamage: " + damage);
 	}
+
+	@Override
+	public int compareTo(Weapon o) 
+	{
+		int value = this.getName().compareTo(o.getName());
+		if(value == 0)
+		{
+			return this.getName().compareTo(o.getName());
+		}
+		else
+		{
+			return value;
+		}
+	}
+	
 }
