@@ -1,7 +1,4 @@
 package app;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -82,17 +79,17 @@ public class StoreFront {
 			case 1:
 			{
 				// Display product details
-				 inventoryManager.sword1.productDetails();
+				 inventoryManager.inventoryList.get(0).productDetails();
 				 
 				 System.out.println("Add to cart? (y/n)");
 				 char purchase = newInput.nextLine().charAt(0);
 				 
 				 if(purchase == 'y')
 				 {  
-					 shoppingCart.addProduct(inventoryManager.sword1);
+					 shoppingCart.addProduct(inventoryManager.inventoryList.get(0));
 					 
 					 // Update new quantity
-					 inventoryManager.deductQuanitity(inventoryManager.sword1);
+					 inventoryManager.deductQuanitity(inventoryManager.inventoryList.get(0));
 					 showProducts();
 				 }
 				 // If no, show products
@@ -106,17 +103,17 @@ public class StoreFront {
 			case 2:
 			{
 				// Display product details
-				 inventoryManager.axe1.productDetails();
+				 inventoryManager.inventoryList.get(1).productDetails();
 				 
 				 System.out.println("Add to cart? (y/n)");
 				 char purchase = newInput.nextLine().charAt(0);
 				 
 				 if(purchase == 'y')
 				 { 
-					 shoppingCart.addProduct(inventoryManager.axe1);
+					 shoppingCart.addProduct(inventoryManager.inventoryList.get(1));
 					 
 					 // Update new quantity
-					 inventoryManager.deductQuanitity(inventoryManager.axe1);
+					 inventoryManager.deductQuanitity(inventoryManager.inventoryList.get(1));
 					 showProducts();
 				 }
 				 // If no, show products
@@ -130,17 +127,17 @@ public class StoreFront {
 			case 3:
 			{
 				// Display product details
-				 inventoryManager.shield.productDetails();
+				inventoryManager.inventoryList.get(2).productDetails();
 				 
 				 System.out.println("Add to cart? (y/n)");
 				 char purchase = newInput.nextLine().charAt(0);
 				 
 				 if(purchase == 'y')
 				 { 
-					 shoppingCart.addProduct(inventoryManager.shield);
+					 shoppingCart.addProduct(inventoryManager.inventoryList.get(2));
 					 
 					 // Update new quantity
-					 inventoryManager.deductQuanitity(inventoryManager.shield);
+					 inventoryManager.deductQuanitity(inventoryManager.inventoryList.get(2));
 					 showProducts();
 				 }
 				 // If no, show products
@@ -154,17 +151,17 @@ public class StoreFront {
 			case 4:
 			{
 				// Display product details
-				 inventoryManager.chainMail.productDetails();
+				inventoryManager.inventoryList.get(3).productDetails();
 				 
 				 System.out.println("Add to cart? (y/n)");
 				 char purchase = newInput.nextLine().charAt(0);
 				 
 				 if(purchase == 'y')
 				 { 
-					 shoppingCart.addProduct(inventoryManager.chainMail);
+					 shoppingCart.addProduct(inventoryManager.inventoryList.get(3));
 					 
 					 // Update new quantity
-					 inventoryManager.deductQuanitity(inventoryManager.chainMail);
+					 inventoryManager.deductQuanitity(inventoryManager.inventoryList.get(3));
 					 showProducts();
 				 }
 				 // If no, show products
@@ -178,17 +175,17 @@ public class StoreFront {
 			case 5:
 			{
 				// Display product details
-				 inventoryManager.minorPotion.productDetails();
+				inventoryManager.inventoryList.get(4).productDetails();
 				 
 				 System.out.println("Add to cart? (y/n)");
 				 char purchase = newInput.nextLine().charAt(0);
 				 
 				 if(purchase == 'y')
 				 { 
-					 shoppingCart.addProduct(inventoryManager.minorPotion);
+					 shoppingCart.addProduct(inventoryManager.inventoryList.get(4));
 					 
 					 // Update new quantity
-					 inventoryManager.deductQuanitity(inventoryManager.minorPotion);
+					 inventoryManager.deductQuanitity(inventoryManager.inventoryList.get(4));
 					 showProducts();
 				 }
 				 // If no, show products
@@ -219,7 +216,7 @@ public class StoreFront {
 		shoppingCart.checkCart(shoppingCart.cartList);
 		System.out.println("\n1. Edit your cart \n2. Checkout \n3. Main menu");
 		
-		Scanner newInput = new Scanner(System.in);
+		//Scanner newInput = new Scanner(System.in);
 		byte userChoice = input.nextByte();
 		
 		if (userChoice == 1)
@@ -246,7 +243,7 @@ public class StoreFront {
 		
 		for (int i = 0; i < list.size(); i ++)
 		{
-			System.out.println((i + 1) + " " + list.get(i).getName());
+			System.out.println((i + 1) + ". " + list.get(i).getName());
 		}
 		
 		byte userChoice = input.nextByte();
@@ -264,7 +261,7 @@ public class StoreFront {
 				if(edit == 'y')
 				{
 					shoppingCart.cartList.remove(0);
-					inventoryManager.addQuanitity(inventoryManager.sword1);
+					inventoryManager.addQuanitity(inventoryManager.inventoryList.get(0));
 				}
 				if(edit == 'n')
 				{
@@ -282,7 +279,7 @@ public class StoreFront {
 				if(edit == 'y')
 				{
 					shoppingCart.cartList.remove(1);
-					inventoryManager.addQuanitity(inventoryManager.axe1);
+					inventoryManager.addQuanitity(inventoryManager.inventoryList.get(1));
 				}
 				if(edit == 'n')
 				{
@@ -300,7 +297,7 @@ public class StoreFront {
 				if(edit == 'y')
 				{
 					shoppingCart.cartList.remove(2);
-					inventoryManager.addQuanitity(inventoryManager.shield);
+					inventoryManager.addQuanitity(inventoryManager.inventoryList.get(2));
 				}
 				if(edit == 'n')
 				{
@@ -318,7 +315,7 @@ public class StoreFront {
 				if(edit == 'y')
 				{
 					shoppingCart.cartList.remove(3);
-					inventoryManager.addQuanitity(inventoryManager.chainMail);
+					inventoryManager.addQuanitity(inventoryManager.inventoryList.get(3));
 				}
 				if(edit == 'n')
 				{
@@ -336,7 +333,7 @@ public class StoreFront {
 				if(edit == 'y')
 				{
 					shoppingCart.cartList.remove(4);
-					inventoryManager.addQuanitity(inventoryManager.minorPotion);
+					inventoryManager.addQuanitity(inventoryManager.inventoryList.get(4));
 				}
 				if(edit == 'n')
 				{
@@ -364,7 +361,7 @@ public class StoreFront {
 	 */
 	public static void checkout(ArrayList<SalableProduct> list)
 	{
-			System.out.println("Thank you for your business!");
+		System.out.println("Thank you for your business!");
 		
 		mainMenu();
 	}
@@ -372,6 +369,7 @@ public class StoreFront {
 	public static void main(String[] args) 
 	{
 		inventoryManager.createInventoryList();
+		// TODO Input validation
 		mainMenu();
 	}
 

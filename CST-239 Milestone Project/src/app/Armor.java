@@ -10,6 +10,23 @@ public class Armor extends SalableProduct implements Comparable<Armor>
 	private int armorClass;
 	
 	/**
+	 * Default constructor, needed for jackson
+	 */
+	public Armor()
+	{
+		super();
+		armorClass = 0;
+	}
+	
+	public int getArmorClass() {
+		return armorClass;
+	}
+
+	public void setArmorClass(int armorClass) {
+		this.armorClass = armorClass;
+	}
+
+	/**
 	 * Class constructor
 	 * @param name string
 	 * @param description string 

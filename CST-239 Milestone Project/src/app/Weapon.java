@@ -9,6 +9,21 @@ public class Weapon extends SalableProduct implements Comparable<Weapon>
 {
 	private int damage;
 	
+	public int getDamage() {
+		return damage;
+	}
+	public void setDamage(int damage) {
+		this.damage = damage;
+	}
+	
+	/**
+	 * Default constructor, needed for jackson
+	 */
+	public Weapon()
+	{
+		super();
+		damage = 0;
+	}
 	/**
 	 * Class constructor
 	 * @param name string

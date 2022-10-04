@@ -40,6 +40,11 @@ public class ShoppingCart
 		// Hold cart total checkout price
 		int cartTotal = 0;
 		
+		if(list.size() == 0)
+		{
+			System.out.println("Your cart is empty.");
+		}
+		
 		for (int i = 0; i < list.size(); i ++)
 		{
 			System.out.println(list.get(i).getName() + " - Price: " + list.get(i).getPrice() + " gold pieces");

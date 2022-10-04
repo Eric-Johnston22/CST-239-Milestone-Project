@@ -1,9 +1,26 @@
 package app;
+
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 /**
  * Implements a SalableProduct that has a name, description, price, and quantity
  * @author Eric Johnston
  * @version 0.2
  */
+@JsonTypeInfo
+(
+	use = JsonTypeInfo.Id.NAME,
+	include = JsonTypeInfo.As.PROPERTY,
+	property = "type"
+)
+@JsonSubTypes
+({
+	@Type(value = Weapon.class, name = "weapon"),
+	@Type(value = Armor.class, name = "armor"),
+	@Type(value = Health.class, name = "health")
+})
 public abstract class SalableProduct
 {
 	private String name;
@@ -11,6 +28,13 @@ public abstract class SalableProduct
 	private int price;
 	private int quantity;
 	
+	public SalableProduct()
+	{
+		name = "";
+		description = "";
+		price = 0;
+		quantity = 0;
+	}
 	/**
 	 * Class constructor
 	 * @param name string

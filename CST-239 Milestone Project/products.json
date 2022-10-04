@@ -1,0 +1,5 @@
+{"type":"weapon","name":"Short Sword","description":"A simple sword. It doesn't look very sharp...","price":3,"quantity":2,"damage":2}
+{"type":"weapon","name":"Axe of Storms","description":"A one handed axe, marked with runes. It hums with magic.","price":50,"quantity":1,"damage":12}
+{"type":"armor","name":"Wooden Buckler","description":"A flimsy wooden shield.","price":2,"quantity":1,"armorClass":5}
+{"type":"armor","name":"Chain Mail","description":"A well made coat of chain mail.","price":8,"quantity":3,"armorClass":7}
+{"type":"health","name":"Minor Healing Potion","description":"A healing draught with a bitter taste.","price":2,"quantity":20,"heal":2}

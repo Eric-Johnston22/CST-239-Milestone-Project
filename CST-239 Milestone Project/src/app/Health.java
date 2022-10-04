@@ -7,8 +7,24 @@ package app;
  */
 public class Health extends SalableProduct implements Comparable<Health>
 {
+	// Amount this object can heal
 	private int heal;
 	
+	public int getHeal() {
+		return heal;
+	}
+	public void setHeal(int heal) {
+		this.heal = heal;
+	}
+	
+	/**
+	 * Default constructor, needed for jackson
+	 */
+	public Health()
+	{
+		super();
+		heal = 0;
+	}
 	/**
 	 * Class constructor
 	 * @param name string
