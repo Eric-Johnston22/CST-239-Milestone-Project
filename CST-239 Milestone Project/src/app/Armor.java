@@ -1,11 +1,13 @@
 package app;
 
+import java.util.Comparator;
+
 /**
  * Implements an Armor product with an armorClass, extends SalableProduct
  * @author Eric Johnston
  * @version 0.1
  */
-public class Armor extends SalableProduct implements Comparable<Armor>
+public class Armor extends SalableProduct implements Comparable<SalableProduct>
 {
 	private int armorClass;
 	
@@ -51,7 +53,8 @@ public class Armor extends SalableProduct implements Comparable<Armor>
 	}
 
 	@Override
-	public int compareTo(Armor o) {
+	public int compareTo(SalableProduct o)
+	{
 		int value = this.getName().compareTo(o.getName());
 		if(value == 0)
 		{
@@ -62,4 +65,17 @@ public class Armor extends SalableProduct implements Comparable<Armor>
 			return value;
 		}
 	}
+	public static Comparator<SalableProduct> productNameComparator = new Comparator<SalableProduct>()
+	{
+
+		@Override
+		public int compare(SalableProduct o1, SalableProduct o2)
+		{
+			String pName1 = o1.getName();
+			String pName2 = o2.getName();
+			
+			return pName1.compareTo(pName2);
+		}
+		
+	};
 }

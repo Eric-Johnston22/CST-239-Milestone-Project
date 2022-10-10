@@ -1,11 +1,13 @@
 package app;
 
+import java.util.Comparator;
+
 /**
  * Implements a Health product with a heal field, extends SalableProduct
  * @author Eric Johnston
  * @version 0.1
  */
-public class Health extends SalableProduct implements Comparable<Health>
+public class Health extends SalableProduct implements Comparable<SalableProduct>
 {
 	// Amount this object can heal
 	private int heal;
@@ -48,9 +50,10 @@ public class Health extends SalableProduct implements Comparable<Health>
 		+ "\nPrice: " + getPrice() + " gold pieces" + "\nQty: " + getQuantity()
 		+ "\nHeal: " + heal);
 	}
-
+	
 	@Override
-	public int compareTo(Health o) {
+	public int compareTo(SalableProduct o)
+	{
 		int value = this.getName().compareTo(o.getName());
 		if(value == 0)
 		{
@@ -61,4 +64,17 @@ public class Health extends SalableProduct implements Comparable<Health>
 			return value;
 		}
 	}
+	public static Comparator<SalableProduct> productNameComparator = new Comparator<SalableProduct>()
+	{
+
+		@Override
+		public int compare(SalableProduct o1, SalableProduct o2)
+		{
+			String pName1 = o1.getName();
+			String pName2 = o2.getName();
+			
+			return pName1.compareTo(pName2);
+		}
+		
+	};
 }

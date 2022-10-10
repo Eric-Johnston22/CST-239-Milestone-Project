@@ -1,5 +1,8 @@
-{"type":"weapon","name":"Short Sword","description":"A simple sword. It doesn't look very sharp...","price":3,"quantity":2,"damage":2}
-{"type":"weapon","name":"Axe of Storms","description":"A one handed axe, marked with runes. It hums with magic.","price":50,"quantity":1,"damage":12}
-{"type":"armor","name":"Wooden Buckler","description":"A flimsy wooden shield.","price":2,"quantity":1,"armorClass":5}
-{"type":"armor","name":"Chain Mail","description":"A well made coat of chain mail.","price":8,"quantity":3,"armorClass":7}
-{"type":"health","name":"Minor Healing Potion","description":"A healing draught with a bitter taste.","price":2,"quantity":20,"heal":2}
+{"type": "weapon","name": "Short Sword","description": "A simple sword. It doesn't look very sharp...","price": 3,"quantity": 2,"damage": 2}
+{"type": "weapon","name": "Axe of Storms","description": "A one handed axe, marked with runes. It hums with magic.","price": 50,"quantity": 1,"damage": 12}
+{"type": "armor","name": "Wooden Buckler","description": "A flimsy wooden shield.","price": 2,"quantity": 1,"armorClass": 5}
+{"type": "armor","name": "Elven chain Mail","description": "Delicately crafted from mithril links.","price": 22,"quantity": 1,"armorClass": 10}
+{"type": "health","name": "Minor Healing Potion","description": "A healing draught with a bitter taste.","price": 1,"quantity": 20,"heal": 2}
+{"type": "armor","name": "Manaweave Robe","description": "A glimmering robe of fine cloth.","price": 8,"quantity": 1,"armorClass": 1}
+{"type": "armor","name": "Thorium Armor","description": "Nearly impenetrable plate armor of dwarven make.","price": 28,"quantity": 1,"armorClass": 10}
+{"type": "weapon","name": "Sturdy Recurve Bow","description": "A sturdy bow fashioned from yew.","price":10 ,"quantity": 2,"damage": 12}

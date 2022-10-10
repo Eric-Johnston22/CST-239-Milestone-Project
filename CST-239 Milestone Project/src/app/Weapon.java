@@ -1,11 +1,13 @@
 package app;
 
+import java.util.Comparator;
+
 /**
  * Implements a Weapon product with a damage field, extends SalableProduct
  * @author Eric Johnston
  * @version 0.1
  */
-public class Weapon extends SalableProduct implements Comparable<Weapon>
+public class Weapon extends SalableProduct implements Comparable<SalableProduct>
 {
 	private int damage;
 	
@@ -49,7 +51,7 @@ public class Weapon extends SalableProduct implements Comparable<Weapon>
 	}
 
 	@Override
-	public int compareTo(Weapon o) 
+	public int compareTo(SalableProduct o)
 	{
 		int value = this.getName().compareTo(o.getName());
 		if(value == 0)
@@ -62,4 +64,48 @@ public class Weapon extends SalableProduct implements Comparable<Weapon>
 		}
 	}
 	
+	/**
+	 * Sorts objects by name ascending
+	 */
+	public static Comparator<SalableProduct> productNameAscending = new Comparator<SalableProduct>()
+	{
+		@Override
+		public int compare(SalableProduct o1, SalableProduct o2)
+		{
+			String pName1 = o1.getName();
+			String pName2 = o2.getName();
+			
+			return pName1.compareTo(pName2);
+		}
+	};
+	
+	/**
+	 * Sorts objects by price descending
+	 */
+	public static Comparator<SalableProduct> productPriceDescending = new Comparator<SalableProduct>()
+	{
+		@Override
+		public int compare(SalableProduct o1, SalableProduct o2)
+		{
+			int pPrice1 = o1.getPrice();
+			int pPrice2 = o2.getPrice();
+			
+			return pPrice2 - pPrice1;
+		}
+	};
+	
+	/**
+	 * Sorts objects by price ascending
+	 */
+	public static Comparator<SalableProduct> productPriceAscending = new Comparator<SalableProduct>()
+	{
+		@Override
+		public int compare(SalableProduct o1, SalableProduct o2)
+		{
+			int pPrice1 = o1.getPrice();
+			int pPrice2 = o2.getPrice();
+			
+			return pPrice1 - pPrice2;
+		}
+	};
 }

@@ -1,6 +1,7 @@
 package app;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 /**
@@ -24,7 +25,7 @@ public class InventoryManager
 	{
 		if(product.getQuantity() != 0)
 		{
-			System.out.println(product.getName());
+			System.out.println(product.getName() + " - Price: " + product.getPrice() + "g");
 		}
 	}
 		
@@ -49,4 +50,41 @@ public class InventoryManager
 	{	
 		 inventoryList = fileService.readFromFile("products.json");
 	}
+	
+	/**
+	 * Sort SalableProduct list by name ascending
+	 */
+	public void nameSortAscending()
+	{
+		System.out.println("Sorting products by name ascending...\n");
+		Collections.sort(inventoryList, Weapon.productNameAscending);
+	}
+	
+	/**
+	 * Sort SalableProduct list by name descending
+	 */
+	public void nameSortDescending()
+	{
+		System.out.println("Sorting products by name descending...\n");
+		Collections.sort(inventoryList, Collections.reverseOrder());
+	}
+	
+	/**
+	 * Sort SalableProduct list by price ascending
+	 */
+	public void priceSortAscending()
+	{
+		System.out.println("Sorting products by price ascending...\n");
+		Collections.sort(inventoryList, Weapon.productPriceAscending);
+	}
+	
+	/**
+	 * Sort SalableProduct list by price descending
+	 */
+	public void priceSortDescending()
+	{
+		System.out.println("Sorting products by price descending...\n");
+		Collections.sort(inventoryList, Weapon.productPriceDescending);
+	}
+	
 }

@@ -1,5 +1,7 @@
 package app;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -25,7 +27,7 @@ public class StoreFront {
 	public static void mainMenu() 
 	{
 		System.out.println("Greetings adventurer! Welcome to Lionheart Armory! \nHow can I be of service?" + 
-						   "\n1. View Products \n2. Shopping Cart \n3. Exit");
+						   "\n1. View Products \n2. Shopping Cart \n0. Exit");
 		
 		
 		// Hold user input
@@ -40,7 +42,7 @@ public class StoreFront {
 		{
 			viewCart();
 		}
-		if (userChoice == 3)
+		if (userChoice == 0)
 		{
 			System.exit(0);
 		}
@@ -59,8 +61,8 @@ public class StoreFront {
 			inventoryManager.checkStock(i);
 		}
 		
-		System.out.println("\n6. Return to menu");
-		System.out.println("7. Exit");
+		System.out.println("\n9. Return to menu");
+		System.out.println("0. Exit");
 		
 		productSelection();
 	}
@@ -70,6 +72,8 @@ public class StoreFront {
 	 */
 	public static void productSelection()
 	{
+		System.out.println("11. Sort by name ascending.\n12. Sort by name descending\n13. "
+				+ "Sort by price ascending\n14. Sort by price descending.\n");
 		Scanner newInput = new Scanner(System.in);
 		byte userChoice = input.nextByte();
 		
@@ -198,14 +202,114 @@ public class StoreFront {
 			
 			case 6:
 			{
-				mainMenu();
+				// Display product details
+				inventoryManager.inventoryList.get(5).productDetails();
+				 
+				 System.out.println("Add to cart? (y/n)");
+				 char purchase = newInput.nextLine().charAt(0);
+				 
+				 if(purchase == 'y')
+				 { 
+					 shoppingCart.addProduct(inventoryManager.inventoryList.get(5));
+					 
+					 // Update new quantity
+					 inventoryManager.deductQuanitity(inventoryManager.inventoryList.get(5));
+					 showProducts();
+				 }
+				 // If no, show products
+				 if(purchase == 'n')
+				 {
+					 showProducts();
+				 }
+				 break;
 			}
 			
 			case 7:
 			{
-				System.exit(0);
+				// Display product details
+				inventoryManager.inventoryList.get(6).productDetails();
+				 
+				 System.out.println("Add to cart? (y/n)");
+				 char purchase = newInput.nextLine().charAt(0);
+				 
+				 if(purchase == 'y')
+				 { 
+					 shoppingCart.addProduct(inventoryManager.inventoryList.get(6));
+					 
+					 // Update new quantity
+					 inventoryManager.deductQuanitity(inventoryManager.inventoryList.get(6));
+					 showProducts();
+				 }
+				 // If no, show products
+				 if(purchase == 'n')
+				 {
+					 showProducts();
+				 }
+				 break;
 			}
 			
+			case 8:
+			{
+				// Display product details
+				inventoryManager.inventoryList.get(7).productDetails();
+				 
+				 System.out.println("Add to cart? (y/n)");
+				 char purchase = newInput.nextLine().charAt(0);
+				 
+				 if(purchase == 'y')
+				 { 
+					 shoppingCart.addProduct(inventoryManager.inventoryList.get(7));
+					 
+					 // Update new quantity
+					 inventoryManager.deductQuanitity(inventoryManager.inventoryList.get(7));
+					 showProducts();
+				 }
+				 // If no, show products
+				 if(purchase == 'n')
+				 {
+					 showProducts();
+				 }
+				 break;
+			}
+			
+			case 9:
+			{
+				mainMenu();
+				break;
+			}
+			
+			case 0:
+			{
+				System.exit(0);
+				break;
+			}
+			
+			case 11:
+			{
+				inventoryManager.nameSortAscending();
+				showProducts();
+				break;
+			}
+			
+			case 12:
+			{
+				inventoryManager.nameSortDescending();
+				showProducts();
+				break;
+			}
+			
+			case 13:
+			{
+				inventoryManager.priceSortAscending();
+				showProducts();
+				break;
+			}
+			case 14:
+			{
+				inventoryManager.priceSortDescending();
+				showProducts();
+				break;
+			}
 		}
 		newInput.close();
 	}
@@ -239,7 +343,7 @@ public class StoreFront {
 	 */
 	public static void editCart(ArrayList<SalableProduct> list)
 	{
-		System.out.println("Select a product to edit or press 6 to clear cart");
+		System.out.println("Select a product to edit or press 9 to clear cart");
 		
 		for (int i = 0; i < list.size(); i ++)
 		{
@@ -345,6 +449,60 @@ public class StoreFront {
 			
 			case 6:
 			{
+				System.out.println("Remove from cart? (y/n)");
+				char edit = newInput.nextLine().charAt(0);
+					
+				if(edit == 'y')
+				{
+					shoppingCart.cartList.remove(5);
+					inventoryManager.addQuanitity(inventoryManager.inventoryList.get(5));
+				}
+				if(edit == 'n')
+				{
+					viewCart();
+				}
+				
+				 break;
+			}
+			
+			case 7:
+			{
+				System.out.println("Remove from cart? (y/n)");
+				char edit = newInput.nextLine().charAt(0);
+					
+				if(edit == 'y')
+				{
+					shoppingCart.cartList.remove(6);
+					inventoryManager.addQuanitity(inventoryManager.inventoryList.get(6));
+				}
+				if(edit == 'n')
+				{
+					viewCart();
+				}
+				
+				 break;
+			}
+			
+			case 8:
+			{
+				System.out.println("Remove from cart? (y/n)");
+				char edit = newInput.nextLine().charAt(0);
+					
+				if(edit == 'y')
+				{
+					shoppingCart.cartList.remove(7);
+					inventoryManager.addQuanitity(inventoryManager.inventoryList.get(7));
+				}
+				if(edit == 'n')
+				{
+					viewCart();
+				}
+				
+				 break;
+			}
+			
+			case 9:
+			{
 				shoppingCart.cartList.clear();
 				mainMenu();
 			}
@@ -369,6 +527,7 @@ public class StoreFront {
 	public static void main(String[] args) 
 	{
 		inventoryManager.createInventoryList();
+		//Collections.sort(inventoryManager.inventoryList, Collections.reverseOrder());
 		// TODO Input validation
 		mainMenu();
 	}
