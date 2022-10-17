@@ -1,13 +1,11 @@
 package app;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 
 /**
  * Implements store front that allows for the purchase of products
  * @author Eric Johnston
- * @version 0.2
+ * @version 0.8
  */
 public class StoreFront {
 	
@@ -27,7 +25,7 @@ public class StoreFront {
 	public static void mainMenu() 
 	{
 		System.out.println("Greetings adventurer! Welcome to Lionheart Armory! \nHow can I be of service?" + 
-						   "\n1. View Products \n2. Shopping Cart \n0. Exit");
+						   "\n1. View Products \n2. Shopping Cart \n3. Update inventory \n0. Exit");
 		
 		
 		// Hold user input
@@ -41,6 +39,11 @@ public class StoreFront {
 		if (userChoice == 2)
 		{
 			viewCart();
+		}
+		if (userChoice == 3)
+		{
+			inventoryManager.createInventoryList();
+			mainMenu();
 		}
 		if (userChoice == 0)
 		{

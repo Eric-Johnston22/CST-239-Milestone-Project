@@ -48,7 +48,9 @@ public class InventoryManager
 	 */
 	public void createInventoryList()
 	{	
-		 inventoryList = fileService.readFromFile("products.json");
+		//Clear list if already made
+		inventoryList.clear();
+		inventoryList = fileService.readFromFile("products.json");
 	}
 	
 	/**

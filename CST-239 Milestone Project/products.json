@@ -3,6 +3,3 @@
 {"type": "armor","name": "Wooden Buckler","description": "A flimsy wooden shield.","price": 2,"quantity": 1,"armorClass": 5}
 {"type": "armor","name": "Elven chain Mail","description": "Delicately crafted from mithril links.","price": 22,"quantity": 1,"armorClass": 10}
 {"type": "health","name": "Minor Healing Potion","description": "A healing draught with a bitter taste.","price": 1,"quantity": 20,"heal": 2}
-{"type": "armor","name": "Manaweave Robe","description": "A glimmering robe of fine cloth.","price": 8,"quantity": 1,"armorClass": 1}
-{"type": "armor","name": "Thorium Armor","description": "Nearly impenetrable plate armor of dwarven make.","price": 28,"quantity": 1,"armorClass": 10}
-{"type": "weapon","name": "Sturdy Recurve Bow","description": "A sturdy bow fashioned from yew.","price":10 ,"quantity": 2,"damage": 12}

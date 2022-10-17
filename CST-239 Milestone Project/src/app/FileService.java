@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * Implement FileService that allows writing to and reading from json files
  * @author Eric Johnston
- * @version 0.1
+ * @version 0.8
  */
 public class FileService 
 {
