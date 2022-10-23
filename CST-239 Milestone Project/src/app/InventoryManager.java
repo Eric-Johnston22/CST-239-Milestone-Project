@@ -7,7 +7,7 @@ import java.util.Collections;
 /**
  * Implements inventory manager
  * @author Eric Johnston
- * @version 0.2
+ * @version 1.0
  */
 public class InventoryManager
 {

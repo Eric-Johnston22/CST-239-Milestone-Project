@@ -52,7 +52,7 @@ public class ShoppingCart
 		}
 		
 		// Print cart total
-		System.out.println("\nCart total: " + cartTotal + " gold pieces");
+		System.out.println("\r\nCart total: " + cartTotal + " gold pieces");
 	}
 	
 }

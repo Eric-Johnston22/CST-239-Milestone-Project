@@ -15,7 +15,7 @@ public class ServerThread extends Thread
 		try
 		{
 			server.start(6666);
-			//server.cleanup();
+			server.cleanup();
 		}
 		catch (IOException e)
 		{

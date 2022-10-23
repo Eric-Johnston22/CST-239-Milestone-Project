@@ -73,7 +73,7 @@ public class FileService
 				SalableProduct product = objectMapper.readValue(json, SalableProduct.class);
 				SalableProducts.add(product);
 			}
-			System.out.println("Creating objects from products.json");
+			//System.out.println("Creating objects from products.json");
 			s.close();
 		}
 		catch (IOException e)

@@ -5,9 +5,10 @@ import java.util.Scanner;
 /**
  * Implements store front that allows for the purchase of products
  * @author Eric Johnston
- * @version 0.8
+ * @version 1.0
  */
-public class StoreFront {
+public class StoreFront 
+{
 	
 	// Scanner for user input
 	static Scanner input = new Scanner(System.in);
@@ -332,7 +333,7 @@ public class StoreFront {
 		}
 		if (userChoice == 2)
 		{
-			checkout(shoppingCart.cartList);
+			checkout();
 		}
 		if (userChoice == 3)
 		{
@@ -520,7 +521,7 @@ public class StoreFront {
 	 * Display thank you for checking out
 	 * @param list
 	 */
-	public static void checkout(ArrayList<SalableProduct> list)
+	public static void checkout()
 	{
 		System.out.println("Thank you for your business!");
 		

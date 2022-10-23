@@ -5,16 +5,27 @@ import java.util.Comparator;
 /**
  * Implements a Weapon product with a damage field, extends SalableProduct
  * @author Eric Johnston
- * @version 0.1
+ * @version 1.0
  */
 public class Weapon extends SalableProduct implements Comparable<SalableProduct>
 {
 	private int damage;
 	
-	public int getDamage() {
+	/**
+	 * Damage getter
+	 * @return
+	 */
+	public int getDamage() 
+	{
 		return damage;
 	}
-	public void setDamage(int damage) {
+	
+	/**
+	 * Damage setter
+	 * @param damage
+	 */
+	public void setDamage(int damage) 
+	{
 		this.damage = damage;
 	}
 	

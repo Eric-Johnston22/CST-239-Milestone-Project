@@ -5,7 +5,7 @@ import java.util.Comparator;
 /**
  * Implements a Health product with a heal field, extends SalableProduct
  * @author Eric Johnston
- * @version 0.1
+ * @version 1.0
  */
 public class Health extends SalableProduct implements Comparable<SalableProduct>
 {

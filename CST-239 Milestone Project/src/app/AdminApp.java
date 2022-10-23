@@ -8,6 +8,8 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
+import org.junit.Ignore;
+
 /**
  * Implements an Administration console app that connects to server
  * @author Eric Johnston

@@ -16,7 +16,6 @@ import java.util.ArrayList;
  */
 public class AdminService
 {
-
 	private ServerSocket serverSocket;
 	private Socket clientSocket;
 	private PrintWriter out;
@@ -32,12 +31,12 @@ public class AdminService
 	 */
 	public void start(int port) throws IOException
 	{
-
 		System.out.println("Waiting for a client connection...");
 		serverSocket = new ServerSocket(port);
+		
+		// Keep server open to receive new commands
 		while (true)
 		{
-
 			clientSocket = serverSocket.accept();
 
 			SalableProduct[] products = new SalableProduct[3];
@@ -51,6 +50,7 @@ public class AdminService
 
 			String inputLine = in.readLine();
 
+			// If inputLine is U, update inventory.
 			if (inputLine.equals("U"))
 			{
 				System.out.println("Got a message to update inventory with new products\n");
@@ -60,17 +60,18 @@ public class AdminService
 					fileService.saveToFile("products.json", products[i], true);
 				}
 			}
+			//If inputLine is R, 
 			if (inputLine.equals("R"))
 			{
 				System.out.println("Got a message to return inventory in JSON format\n");
-				//out.println("OK");
 
+				//List to hold JSON objects
 				ArrayList<SalableProduct> SalableProducts = new ArrayList<SalableProduct>();
 				SalableProducts = fileService.readFromFile("products.json");
 				String s = "";
 				for (SalableProduct product : SalableProducts)
 				{
-					s = s + "name: " + product.getName() + " description: " + product.getDescription()
+					s = "name: " + product.getName() + " description: " + product.getDescription()
 							+ " price: " + product.getPrice() + " quantity: " + product.getQuantity();
 				}
 				out.println(s);

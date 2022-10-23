@@ -5,7 +5,7 @@ import java.util.Comparator;
 /**
  * Implements an Armor product with an armorClass, extends SalableProduct
  * @author Eric Johnston
- * @version 0.1
+ * @version 1.0
  */
 public class Armor extends SalableProduct implements Comparable<SalableProduct>
 {

@@ -16,7 +16,7 @@ public class ServerApp
 		while(serverThread.isAlive())
 		{
 			System.out.println("\nServer running...\n");
-			Thread.sleep(60000);
+			Thread.sleep(120000);
 		}
 
 	}

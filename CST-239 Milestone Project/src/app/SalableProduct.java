@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 /**
  * Implements a SalableProduct that has a name, description, price, and quantity
  * @author Eric Johnston
- * @version 0.2
+ * @version 1.0
  */
 @JsonTypeInfo
 (
@@ -28,6 +28,9 @@ public abstract class SalableProduct
 	private int price;
 	private int quantity;
 	
+	/**
+	 * Default constructor for Jackson
+	 */
 	public SalableProduct()
 	{
 		name = "";
