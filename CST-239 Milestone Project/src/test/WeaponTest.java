@@ -17,6 +17,11 @@ import app.InventoryManager;
 import app.SalableProduct;
 import app.Weapon;
 
+/**
+ * Test Weapon class
+ * @author Eric Johnston
+ * @version 1.0
+ */
 public class WeaponTest
 {
 	private ArrayList<SalableProduct> salableProducts = new ArrayList<SalableProduct>();

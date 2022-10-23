@@ -12,6 +12,11 @@ import org.junit.Test;
 import app.Health;
 import app.Health;
 
+/**
+ * Test Health class
+ * @author Eric Johnston
+ * @version 1.0
+ */
 public class HealthTest
 {
 

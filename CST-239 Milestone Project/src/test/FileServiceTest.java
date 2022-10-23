@@ -11,6 +11,11 @@ import app.FileService;
 import app.SalableProduct;
 import app.Weapon;
 
+/**
+ * Test FileService class
+ * @author Eric Johnston
+ * @version
+ */
 public class FileServiceTest
 {
 

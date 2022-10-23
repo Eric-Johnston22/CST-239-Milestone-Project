@@ -19,6 +19,11 @@ import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Assert;
 
+/**
+ * Test ShoppingCart class
+ * @author Eric Johnston
+ * @version 1.0
+ */
 public class ShoppingCartTest
 {
 	private final PrintStream standardOut = System.out;

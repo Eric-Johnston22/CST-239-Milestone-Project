@@ -16,6 +16,11 @@ import app.InventoryManager;
 import app.SalableProduct;
 import app.Weapon;
 
+/**
+ * Test InventoryManager class
+ * @author Eric Johnston
+ * @version
+ */
 public class InventoryManagerTest
 {
 	private ArrayList<SalableProduct> salableProducts = new ArrayList<SalableProduct>();

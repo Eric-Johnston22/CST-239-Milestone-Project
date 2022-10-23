@@ -20,6 +20,11 @@ import app.SalableProduct;
 import app.StoreFront;
 import app.Weapon;
 
+/**
+ * Test StoreFront class
+ * @author Eric Johnston
+ * @version 1.0
+ */
 public class StoreFrontTest
 {
 	private ArrayList<SalableProduct> salableProducts = new ArrayList<SalableProduct>();

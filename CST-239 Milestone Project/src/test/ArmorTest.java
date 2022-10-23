@@ -9,6 +9,11 @@ import org.junit.Test;
 
 import app.Armor;
 
+/**
+ * Test Armor class
+ * @author Eric Johnston
+ * @version 1.0
+ */
 public class ArmorTest
 {
 	private final PrintStream standardOut = System.out;
